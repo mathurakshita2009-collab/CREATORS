@@ -1,0 +1,514 @@
+You are building a polished clickable MVP website for a creator business dashboard.
+
+Use:
+- Next.js App Router
+- TypeScript
+- Tailwind CSS
+- React client components where interactivity is needed
+- Mock data only
+- No real auth
+- No database
+- No real API integrations yet
+
+If this folder is empty, create a new Next.js TypeScript Tailwind project first. If a Next.js project already exists, use the existing structure.
+
+Build the website now.
+
+PRODUCT SUMMARY
+
+The app is for creators who want one dashboard for business health, AI insights, brand deals, finance, and ideas.
+
+The product should keep users on the main dashboard 90% of the time. Deep-dive pages should exist, but the dashboard is the core experience.
+
+PUBLIC PAGES
+
+Create these public routes:
+
+1. /
+Landing page
+- Hero section
+- Clear headline: “Run your creator business from one calm dashboard.”
+- Subheadline explaining finance, brand deals, AI insights, and idea capture
+- CTA buttons:
+  - “View demo dashboard”
+  - “See pricing”
+- Feature sections:
+  - Monthly business health
+  - AI assistant for finance, growth, and brand deals
+  - Ideas workspace
+  - Brand deal pipeline
+- Simple testimonial-style section
+- Footer
+
+2. /pricing
+- Simple pricing page
+- Include 3 plans:
+  - Starter
+  - Pro
+  - Studio
+- Highlight Pro as recommended
+- Use creator-first copy
+
+3. /security
+- Explain read-only integrations
+- Explain that the app cannot move money
+- Explain safe sync behavior
+- Explain AI finance disclaimer
+
+4. /login
+- UI-only login form
+- Email/password fields
+- Button
+- Link to signup
+
+5. /signup
+- UI-only signup form
+- Name/email/password fields
+- Button
+- Link to login
+
+APP ROUTES
+
+Create these authenticated app routes:
+
+1. /dashboard
+2. /deals
+3. /finance
+4. /ideas
+5. /settings
+
+For now, assume the user is logged in. Do not implement real authentication.
+
+APP SHELL
+
+Create a reusable app shell with:
+
+- Top navigation
+- Logo
+- Navigation links:
+  - Dashboard
+  - Deals
+  - Finance
+  - Ideas
+  - Settings
+- Sync status indicator:
+  - Green dot
+  - Text: “Synced 2m ago”
+- Profile avatar button
+- Active route styling
+- Responsive layout
+
+DASHBOARD LAYOUT
+
+The desktop dashboard must use a strict 3-column layout:
+
+- Main dashboard column: 60%
+- AI assistant sidebar: 20%
+- Ideas workspace: 20%
+
+On mobile, stack the sections vertically.
+
+Dashboard wireframe concept:
+
+Left/main column:
+- Monthly Business Health
+- Platform Performance
+- Brand Deal Pipeline
+- Expense Tracker
+
+Middle column:
+- AI Assistant
+
+Right column:
+- Ideas Workspace
+
+MAIN DASHBOARD WIDGETS
+
+1. Monthly Business Health
+Show:
+- Gross Income
+- Expenses
+- Estimated Net Profit
+- 6-month sparkline or mini bar chart
+- Example values:
+  - Income: $8,400
+  - Expenses: $1,200
+  - Net Profit: $7,200
+  - Net Profit up 12%
+
+2. Platform Performance
+Show YouTube, Instagram, TikTok:
+- Followers
+- Engagement rate
+- Estimated revenue
+- Revenue per follower
+- Use visual bars or simple cards
+- If sync is paused, show last known good data, not zero
+
+3. Brand Deal Pipeline
+Show:
+- Pitched: 3
+- Negotiating: 2
+- Active: 2
+- Overdue invoices: 1
+- Add a button/link to open full Deals page
+
+4. Expense Tracker
+Show:
+- Recent transactions
+- Spending categories:
+  - Software
+  - Ads
+  - Gear
+  - Misc
+- Example:
+  - Software: $150
+  - Ads: $400
+  - Gear: $0
+  - Misc: $50
+
+AI ASSISTANT SIDEBAR
+
+Create an interactive AI assistant component.
+
+It must have 3 modes:
+
+1. Finance & Ops
+2. Growth & Content
+3. Brand & Partnership
+
+Use radio buttons, segmented control, or tabs.
+
+When mode changes, quick prompt chips should update.
+
+Finance prompts:
+- Estimate Q3 taxes
+- Find overdue invoices
+- Categorize expenses
+
+Growth prompts:
+- Which platform is growing fastest?
+- Compare revenue per follower
+- What should I post next?
+
+Brand prompts:
+- Draft follow-up email
+- Find stalled deals
+- Suggest my rate
+
+Chat behavior:
+- User can type a message
+- On submit, show the user message
+- Then show a mock AI response based on selected mode
+- AI responses must include:
+  - Source tag
+  - Timestamp/sync freshness
+  - Action button
+- Finance responses must include disclaimer:
+  “AI insights are for informational purposes. Consult a CPA for tax advice.”
+
+Example Finance AI response:
+“You made $8,400 this month. After $1,200 in expenses, your estimated net profit is $7,200.”
+
+Source:
+“Source: Stripe and expense sync, updated 2m ago”
+
+Action button:
+“View finance details”
+
+IDEAS WORKSPACE COLUMN
+
+Create an interactive Ideas Workspace.
+
+Features:
+- Quick add text box at top
+- Add idea button
+- Ideas have:
+  - title
+  - category
+  - status
+  - pinned flag
+- Categories:
+  - Content
+  - Monetization
+  - Brand Pitch
+  - Product
+- Statuses:
+  - Draft
+  - In Progress
+  - Launched
+  - Archived
+- Show pinned ideas first
+- Show recent ideas
+- Filter buttons:
+  - All
+  - Content
+  - Monetization
+  - Brand
+  - Product
+- Each idea has:
+  - Pin/unpin button
+  - Status selector
+  - “Expand” button
+
+When clicking Expand, show mock AI expansion:
+- 5-point outline
+- Suggested B-roll/assets
+- Monetization checklist
+- Next step
+
+Example expansion for “Video about my camera gear”:
+- Hook: “The camera setup I actually use every week”
+- Show the full kit
+- Explain what was worth buying
+- Explain what beginners can skip
+- End with affiliate links and budget alternatives
+
+Add bottom button:
+“Push to Notion/Docs”
+
+DEEP-DIVE PAGES
+
+1. /deals
+
+Build Brand Deals CRM page.
+
+Use a Kanban board with columns:
+- Pitched
+- Negotiating
+- Active
+- Paid
+- Archived
+
+Deal cards should show:
+- Brand name
+- Deal value
+- Status
+- Next action
+- Invoice status
+
+Include mock deals:
+- Lumina Gear — $2,500 — Negotiating
+- SkillShare — $1,800 — Active
+- Notion Templates — $750 — Pitched
+- Adobe Express — $3,200 — Overdue invoice
+
+2. /finance
+
+Build Finance Ledger page.
+
+Include:
+- Income summary
+- Expense summary
+- Net profit
+- Income table
+- Expenses table
+- Category breakdown
+- Tax prep placeholder
+- Export CSV placeholder button
+
+Important:
+Do not let AI calculate financial numbers. Use deterministic utility functions.
+
+3. /ideas
+
+Build expanded Ideas Hub page.
+
+Include:
+- Search input
+- Category filter
+- Status filter
+- Idea board grouped by status
+- Selected idea detail panel
+- Expand idea button
+- Export placeholder
+
+4. /settings
+
+Build Settings page with sections:
+- Integrations
+- Billing
+- Profile
+- Security
+- AI Preferences
+
+Integration cards:
+- Stripe: connected
+- Plaid: disconnected
+- YouTube: connected
+- Instagram: sync paused
+- PayPal: disconnected
+- TikTok: coming in V2
+
+For Instagram sync paused, show:
+“12,400 followers — sync paused. Reconnect Instagram.”
+
+Do not show zero when sync fails.
+
+TYPES
+
+Create TypeScript types for:
+
+- Platform
+- PlatformPerformance
+- BusinessHealth
+- Expense
+- ExpenseCategory
+- BrandDeal
+- InvoiceStatus
+- Idea
+- IdeaCategory
+- IdeaStatus
+- AiMode
+- AiMessage
+- Integration
+- IntegrationStatus
+
+Use explicit types. Avoid `any`.
+
+MOCK DATA
+
+Create mock data in a separate file, for example:
+
+lib/mock-data.ts
+
+Include mock data for:
+- Business health
+- Platform performance
+- Brand deals
+- Expenses
+- Ideas
+- Integrations
+- AI messages
+
+CALCULATION UTILITIES
+
+Create deterministic utility functions in:
+
+lib/calculations.ts
+
+Include:
+
+- calculateGrossIncome()
+- calculateTotalExpenses()
+- calculateNetProfit()
+- calculateRevenuePerFollower()
+- countOverdueInvoices()
+- groupExpensesByCategory()
+
+Use these functions in dashboard and finance views.
+
+AI SAFETY RULES
+
+Follow these exactly:
+
+- The LLM must not calculate finance numbers.
+- Use utility functions for income, expenses, net profit, overdue invoices, and revenue per follower.
+- AI can only summarize already-calculated numbers.
+- Every finance AI response must include the disclaimer:
+  “AI insights are for informational purposes. Consult a CPA for tax advice.”
+- Never fabricate synced data.
+- If sync fails, show last known good value with warning text.
+- Do not show zero unless the actual value is zero.
+
+COPY TONE
+
+Use calm, direct creator-first copy.
+
+Good copy examples:
+- “No expenses tracked yet. Connect your bank to automatically categorize your spending.”
+- “You made $4,200 this month. After $800 in expenses, your net profit is $3,400.”
+- “Instagram disconnected. Click here to securely reconnect so we can update your follower count.”
+- “Got an idea? Jot it down here. We’ll help you turn it into a script or pitch later.”
+
+Avoid hype/corporate copy like:
+- “Leverage our powerful analytics”
+- “Synergize your creator workflows”
+- “Unlock revolutionary monetization intelligence”
+
+DESIGN STYLE
+
+Use:
+- Clean modern SaaS dashboard style
+- Soft neutral background
+- White cards
+- Subtle borders
+- Rounded corners
+- Good spacing
+- Clear typography
+- Small color accents:
+  - Green for positive
+  - Yellow for sync warning
+  - Red for overdue/error
+  - Blue/purple for AI accents
+
+Make it look polished enough for a founder demo.
+
+RESPONSIVENESS
+
+Desktop:
+- 3-column dashboard
+
+Tablet:
+- Main column full width
+- AI and Ideas can become two columns
+
+Mobile:
+- Stack everything vertically
+- Navigation should wrap or collapse cleanly
+- Cards should be readable
+
+ACCESSIBILITY
+
+Add:
+- Semantic HTML
+- Button labels
+- Form labels
+- Visible focus states
+- Good contrast
+
+FILES / STRUCTURE
+
+Use a clean structure like:
+
+app/
+  page.tsx
+  pricing/page.tsx
+  security/page.tsx
+  login/page.tsx
+  signup/page.tsx
+  dashboard/page.tsx
+  deals/page.tsx
+  finance/page.tsx
+  ideas/page.tsx
+  settings/page.tsx
+
+components/
+  AppShell.tsx
+  PublicNav.tsx
+  Dashboard/
+  AiAssistant/
+  Ideas/
+  Finance/
+  Deals/
+  Settings/
+  ui/
+
+lib/
+  types.ts
+  mock-data.ts
+  calculations.ts
+  formatters.ts
+
+IMPLEMENTATION REQUIREMENTS
+
+- Build the actual website now.
+- Use mock data only.
+- Make dashboard interactive.
+- Do not leave major sections as blank placeholders.
+- It should run locally with `npm run dev`.
+- After coding, check for TypeScript errors.
+- If possible, run lint/build and fix issues.
+- Give me a short summary of what was built and how to run it.
+
+START NOW.
